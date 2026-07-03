@@ -1,0 +1,11 @@
+---
+sourceLocationPrefix: C:\gh-500-codeql
+baselineLinesOfCode: 122
+unicodeNewlines: false
+columnKind: utf16
+primaryLanguage: csharp
+creationMetadata:
+  sha: 757b103a7c266818cbe638cc1b4effb7fa2ae18c
+  cliVersion: 2.15.5
+  creationTime: 2025-12-29T14:59:13.940063400Z
+finalised: true
