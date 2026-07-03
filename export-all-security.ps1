@@ -61,7 +61,8 @@ try {
             'URL' = $alert.html_url
         }
     }
-} catch {
+}
+catch {
     Write-Host "  ✗ Error: $($_.Exception.Message)" -ForegroundColor Red
 }
 
@@ -89,7 +90,8 @@ try {
             'URL' = $alert.html_url
         }
     }
-} catch {
+}
+catch {
     Write-Host "  ✗ Error: $($_.Exception.Message)" -ForegroundColor Red
 }
 
@@ -117,12 +119,13 @@ try {
             'URL' = $alert.html_url
         }
     }
-} catch {
+}
+catch {
     Write-Host "  ✗ Error: $($_.Exception.Message)" -ForegroundColor Red
 }
 
 # ============================================================
-# SAVE TO CSV (Simple)
+# SAVE TO CSV
 # ============================================================
 Write-Host ""
 Write-Host "Saving results..." -ForegroundColor Yellow
@@ -146,7 +149,7 @@ if ($allFindings.Count -gt 0) {
     
     # Display in table
     Write-Host "Details:" -ForegroundColor Cyan
-    $allFindings | Format-Table -AutoSize
+    $allFindings | Select-Object 'Type','Alert #','State','Severity','Rule' | Format-Table -AutoSize
     
     Write-Host ""
     Write-Host "Open report? (Y/N)" -ForegroundColor Yellow
@@ -154,7 +157,8 @@ if ($allFindings.Count -gt 0) {
     if ($response -eq "Y" -or $response -eq "y") {
         Invoke-Item $csvPath
     }
-} else {
+}
+else {
     Write-Host "No security findings detected!" -ForegroundColor Green
 }
 
